@@ -9,12 +9,7 @@ from openai import OpenAI
 #skriv api nøgle her
 client = OpenAI(api_key="") #
 
-#
-DOWNLOAD_DIR = "static"
 
-#
-if not os.path.exists(DOWNLOAD_DIR):
-    os.makedirs(DOWNLOAD_DIR)
 
 
 
@@ -30,13 +25,12 @@ def download_image(image_url):
         #Splitter billedets filnavn og url(image.jpg)
         image_name = image_url.split('/')[-1]
 
-        #vælger stien for hvor billedet skal gemmes: så C://.../static/image.jpg
-        image_path = os.path.join(DOWNLOAD_DIR, image_name)
+
 
         #Gemmer vi billedet til den specifikke path - WB:write binary
-        with open(image_path, 'wb') as f:
+        with open(image_name, 'wb') as f:
             f.write(response.content)
-        return image_path
+        return image_name
 
     except Exception as e:
         print(f"Failed to download image {image_url}: {e}")
