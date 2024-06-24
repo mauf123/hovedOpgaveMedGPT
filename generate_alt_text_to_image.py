@@ -9,10 +9,10 @@ from openai import OpenAI
 #skriv api nøgle her
 client = OpenAI(api_key="")
 
-# Directory to save images
+#
 DOWNLOAD_DIR = "static"
 
-# Create directory if it doesn't exist
+#
 if not os.path.exists(DOWNLOAD_DIR):
     os.makedirs(DOWNLOAD_DIR)
 
@@ -70,7 +70,9 @@ def gpt(image_url):
 
         #ChatGPT returnere et response array som vi hopper ned igennem. VI får til sidst fat i content som er selve AI beskrivelsen
         #Response objekt nedenunder
+
         #ChatCompletion(id='chatcmpl-9c7sYrpxPWxdmobdEXjO2DOaNvf6Y', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='Blue house logo with a red window, text "FORSIKRINGSHUSET DANMARK" underneath.', role='assistant', function_call=None, tool_calls=None))],
+
         alt_text = response.choices[0].message.content
         return alt_text
 
