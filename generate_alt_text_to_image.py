@@ -7,7 +7,7 @@ from openai import OpenAI
 
 
 #skriv api nøgle her
-client = OpenAI(api_key="")
+client = OpenAI(api_key="") #
 
 #
 DOWNLOAD_DIR = "static"
